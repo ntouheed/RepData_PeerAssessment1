@@ -35,7 +35,7 @@ And find the mean total number of steps taken per day.
 ```{r}
 # We first unzip the zipfile
 
-unzip(zipfile="repdata_data_activity.zip")
+unzip(zipfile="activity.zip")
 
 # Now bring the data into a data frame called activity 
 
@@ -116,12 +116,13 @@ We next take the issue of imputing missing values, as there are a number of days
 
 4.	Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. 
 
-We do notice that these values differ significantly in the interval from 10k to 15k where the frequency has increased from 23 to 35 as compared to the estimates from the first part of the assignment.
+## We do notice that these values differ significantly in the interval from 10k to 15k where the frequency has increased from 23 to 35 as compared to the estimates from the first part of the assignment.
 
-We notice that due to imputing missing data,  mean values stays the same but therer is slight difference in meadian value.
+## We also notice that due to imputing missing data,  mean values stays the same but therer is slight difference in meadian value.
 
 ```{r}
 # As we have already ignored the missing values. So, let us again read the csv # file, this time keeping the missing values:
+unzip(zipfile="activity.zip")
 activity <- read.csv("activity.csv")
 sum(is.na(activity))
 
@@ -191,4 +192,5 @@ qplot(interval,
       main = "") +
   facet_wrap(~ dayType, ncol = 1)
 ```
+
 # From the above plot it is clear that during weekend the data is more spread as compared to weekdays. 
